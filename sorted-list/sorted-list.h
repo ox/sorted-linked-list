@@ -24,7 +24,7 @@ struct SortedList {
     STOP DOING THIS. THIS IS RETARDED. PLEASE DON'T BE BAD AT C. USING TYPEDEFS IN
     THIS WAY OBFUSICATES THE MEANING/STRUCTURE OF THE ARGUMENTS PASSED INTO THE FUNC.
  */
-/* typedef struct SortedList* SortedListPtr; */
+typedef struct SortedList* SortedListPtr;
 
 
 /*
@@ -33,14 +33,13 @@ struct SortedList {
  */
 struct SortedListIterator {
   struct Node * curr_node;
-  struct SortedList * sl;
 };
 
 /*
     STOP DOING THIS. THIS IS RETARDED. PLEASE DON'T BE BAD AT C. USING TYPEDEFS IN
     THIS WAY OBFUSICATES THE MEANING/STRUCTURE OF THE ARGUMENTS PASSED INTO THE FUNC.
  */
-/* typedef struct SortedListIterator* SortedListIteratorPtr; */
+typedef struct SortedListIterator* SortedListIteratorPtr;
 
 /*
  * When your sorted list is used to store objects of some type, since the

@@ -31,6 +31,7 @@
 		AC136A11161BDE81008EB294 /* sorted_list.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = sorted_list.1; sourceTree = "<group>"; };
 		AC136A19161BDF05008EB294 /* sorted-list.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "sorted-list.h"; sourceTree = "<group>"; };
 		AC136A1B161BE1A6008EB294 /* sorted-list.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "sorted-list.c"; sourceTree = "<group>"; };
+		ACC33FA91622379F00D714ED /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +64,7 @@
 		AC136A0E161BDE81008EB294 /* sorted-list */ = {
 			isa = PBXGroup;
 			children = (
+				ACC33FA91622379F00D714ED /* Makefile */,
 				AC136A19161BDF05008EB294 /* sorted-list.h */,
 				AC136A1B161BE1A6008EB294 /* sorted-list.c */,
 				AC136A0F161BDE81008EB294 /* main.c */,
@@ -216,6 +218,7 @@
 				AC136A17161BDE81008EB294 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

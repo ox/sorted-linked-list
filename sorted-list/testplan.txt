@@ -1,0 +1,19 @@
+# Testplan for sl
+
+A variety of test cases are prepared in the `main.c` file. They include the following cases:
+
+  * Vanilla Test
+    Create a sorted list, fill it with N items, iterate, destroy, assert that N number of items were returned.
+  * Incomplete Iterator
+    Same as vanilla, however iterate only over N-m items, where N > m > 0. Assert that only N-m items were traversed.
+  * Multiple Iterators
+    Create multiple iterators for a single sorted list with N items, traverse, ensure that N identical items are returned.
+  * Multiple Iterators with Faulty Data Set
+    Same as multiple iterators, except the data set is deleted before the second iterator starts.
+
+All tests have no input, as it is generated, and are expected to return 1. The collective outputs are chained with `&&`
+operations and the result is printed out, as well as returned. It can be viewed by running:
+
+  $ echo $?
+
+after the termination of the program.

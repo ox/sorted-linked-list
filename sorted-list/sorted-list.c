@@ -1,3 +1,31 @@
+/*
+ # Big-O Analyis
+ 
+ All operations run in linear time. Sorted Lists have a linked list of nodes. Insertion
+ is a linean operation which moves the first item in the list forward until it is even
+ or less than the item before it.
+ 
+ Creation is a constant-time operation, for obvious reasons. Destuction of SortedLists
+ is a linear, recursive operation. Calling delete on the nodes after it, before it
+ `free`'s itself.
+ 
+ # Dealing with Modifications of the Original Sorted List
+ 
+ When a node is added or removed from the linked list when an iterator is operating on
+ it, it either traverses it (if the node is ahead of the current node) or it does not
+ (if it is before the current node). This is an expected behavior and is the only one
+ that treats data fairly. If one would like an unadultered list that will not change
+ while it is being traversed, a mutex lock is a sound place to start.
+ 
+ If the underlying data of the list is modified, then the behavior is undefined. This
+ is an expected result, since the data may also be changed in many equally likely
+ scenarios including, but not limited to: viruses, stack overflows from other programs,
+ physical damage to the machine, and cosmic rays. I make neither an attempt at
+ circumventing such things, nor predicting their probability and accounting for it.
+ 
+ Cosmic rays.
+ 
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include "sorted-list.h"
@@ -17,10 +45,13 @@ void destroy_node(struct Node * node) {
 }
 
 void destroy_nodes(struct Node * node) {
+  if (!node) return;
+  
   if (!node->next) {
     destroy_node(node);
   } else {
     destroy_nodes(node->next);
+    destroy_node(node);
   }
 }
 
@@ -48,6 +79,9 @@ struct Node * sort_nodes(struct Node * head, int (*cf)(void *, void *)) {
   return head;
 }
 
+/* sets the head of the list to be the sorted linked list, returns the truthy ness of
+   the assignment
+ */
 int sort_list(struct SortedList * list) {
   return !!(list->head = sort_nodes(list->head, list->cf));
 }
@@ -67,7 +101,7 @@ int SLInsert(struct SortedList* list, void *newObj) {
 int SLRemove(struct SortedList* list, void *newObj) {
   struct Node * prev_node = NULL, * curr_node = list->head;
   
-  while (list->cf(curr_node->data, newObj) != 0 && curr_node) {
+  while (curr_node && list->cf(curr_node->data, newObj) != 0) {
     prev_node = curr_node;
     curr_node = curr_node->next;
   }
@@ -81,6 +115,10 @@ int SLRemove(struct SortedList* list, void *newObj) {
     list->size -= 1;
     
     return 1;
+  } else if (prev_node) {
+    destroy_node(prev_node);
+    list->head = NULL;
+    return 1;
   } else {
     return 0;
   }
@@ -91,8 +129,7 @@ int SLRemove(struct SortedList* list, void *newObj) {
 struct SortedListIterator* SLCreateIterator(struct SortedList* list) {
   struct SortedListIterator * sli = malloc(sizeof(struct SortedListIterator));
   
-  sli->sl = list;
-  sli->curr_node = sli->sl->head;
+  sli->curr_node = list->head;
   
   return sli;
 }

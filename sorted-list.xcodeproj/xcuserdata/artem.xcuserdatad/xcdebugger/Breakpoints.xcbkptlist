@@ -8,12 +8,38 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "sorted-list/sorted-list.c"
-         timestampString = "371004757.347645"
+         timestampString = "371347561.958434"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "106"
-         endingLineNumber = "106"
-         landmarkName = "SLNextItem()"
+         startingLineNumber = "91"
+         endingLineNumber = "91"
+         landmarkName = "SLInsert()"
+         landmarkType = "7">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "sorted-list/main.c"
+         timestampString = "371350059.849232"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "149"
+         endingLineNumber = "149"
+         landmarkName = "test_multiple_iterators_with_failure()"
+         landmarkType = "7">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "sorted-list/main.c"
+         timestampString = "371350059.849232"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "144"
+         endingLineNumber = "144"
+         landmarkName = "test_multiple_iterators_with_failure()"
          landmarkType = "7">
       </FileBreakpoint>
       <FileBreakpoint
@@ -21,13 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "sorted-list/sorted-list.c"
-         timestampString = "371004757.347645"
+         timestampString = "371347561.958434"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "96"
-         endingLineNumber = "96"
-         landmarkName = "SLCreateIterator()"
-         landmarkType = "7">
+         startingLineNumber = "100"
+         endingLineNumber = "100">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
